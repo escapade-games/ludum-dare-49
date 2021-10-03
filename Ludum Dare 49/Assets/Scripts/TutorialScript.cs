@@ -16,9 +16,9 @@ public class TutorialScript : MonoBehaviour
     void Start()
     {
         tutorialStrings[0] = "Drag and drop any of the bottom numbers into one of the 8 circles";
-        tutorialStrings[1] = "Even numbers split in half, giving one half to each of their neighbours";
-        tutorialStrings[2] = "It is possible for the numbers to split for many iterations. After 49 iterations, the whole thing becomes unstable and it is game over";
-        tutorialStrings[3] = "You also can't place a number into the same circle more than 4 times.";
+        tutorialStrings[1] = "However, you can't place a number into the same circle two times in a row";
+        tutorialStrings[2] = "Even numbers split in half, giving one half to each of their neighbours";
+        tutorialStrings[3] = "It is possible for the numbers to split for many iterations. After 49 iterations, the whole thing becomes unstable and it is game over";
         tutorialStrings[4] = "Try to maximise your score. Good luck!";
         tutorialText.text = tutorialStrings[0];
     }

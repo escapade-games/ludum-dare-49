@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class SelectNumberScript : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class SelectNumberScript : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        initialPosition = new Vector3((Camera.main.pixelWidth / 2f) + index * 150f, (Camera.main.pixelHeight / 2f) - 450f, 0f);
+        initialPosition = new Vector3(Camera.main.pixelWidth * (960f + (index * 150f)) / 1920, Camera.main.pixelHeight * 90f / 1080f, 0f);
         float test = Random.value;
         if (test > 0.99f)
         {

@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     TutorialScript tutorialScript;
     [SerializeField]
     private Text restartText;
+    [SerializeField]
+    private BoxCollider2D[] bColliders = new BoxCollider2D[8];
+    int lastSlotIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +101,13 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DeactivateCollider(int index)
+    {
+        bColliders[lastSlotIndex].enabled = true;
+        bColliders[index].enabled = false;
+        lastSlotIndex = index;
     }
 
     private IEnumerator GameOver()

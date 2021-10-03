@@ -17,17 +17,18 @@ public class AddNumberScript : MonoBehaviour
     [SerializeField]
     GameObject slot;
     SpriteRenderer slotSprite;
+    GameManager gameManager;
     [HideInInspector]
     public bool justGotHit = false;
-    int hitHowManyTimes = 0;
-    BoxCollider2D bCollider;
+    [SerializeField]
+    int index = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         numberText = GetComponent<Text>();
         slotSprite = slot.GetComponent<SpriteRenderer>();
-        bCollider = GetComponent<BoxCollider2D>();
+        gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -35,16 +36,7 @@ public class AddNumberScript : MonoBehaviour
         if (justGotHit)
         {
             justGotHit = false;
-            hitHowManyTimes++;
-            if (hitHowManyTimes > 4)
-            {
-                bCollider.enabled = false;
-            }
-        }
-        else if (GameManager.triggerSplitting && !GameManager.splittingInProgress)
-        {
-            hitHowManyTimes = 0;
-            bCollider.enabled = true;
+            gameManager.DeactivateCollider(index);
         }
     }
 
@@ -106,11 +98,11 @@ public class AddNumberScript : MonoBehaviour
             }
         }
         float timeElapsed = 0f;
-        while (timeElapsed < 2f)
+        while (timeElapsed < 1f)
         {
-            slotSprite.color = Color.Lerp(slotSprite.color, newColor, timeElapsed / 2f);
-            yield return null;
+            slotSprite.color = Color.Lerp(slotSprite.color, newColor, timeElapsed);
             timeElapsed += Time.deltaTime;
+            yield return null;
         }
         slotSprite.color = newColor;
     }

@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -450}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6937931185281864070
 CanvasRenderer:
@@ -138,4 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf71ed835a80d428ace32241bac6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   loadingSlotTextPrefab: {fileID: 6937931185281864065}
