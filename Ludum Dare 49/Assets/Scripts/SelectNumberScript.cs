@@ -17,7 +17,7 @@ public class SelectNumberScript : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        initialPosition = new Vector3(Camera.main.pixelWidth * (960f + (index * 150f)) / 1920, Camera.main.pixelHeight * 90f / 1080f, 0f);
+        initialPosition = new Vector3(Camera.main.pixelWidth / 2f + ((Camera.main.pixelHeight * index * 150f) / 1080f), Camera.main.pixelHeight * 90f / 1080f, 0f);
         float test = Random.value;
         if (test > 0.99f)
         {

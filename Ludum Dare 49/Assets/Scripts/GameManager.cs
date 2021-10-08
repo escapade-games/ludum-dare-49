@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverStuff;
     [SerializeField]
     private GameObject nonGameOverStuff;
+    [SerializeField]
+    private GameObject slots;
     private AudioManager audioManager;
     TutorialScript tutorialScript;
     [SerializeField]
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverStuff.SetActive(true);
         nonGameOverStuff.SetActive(false);
+        slots.SetActive(false);
         yield return new WaitForSeconds(1f);
         float timeElapsed = 0f;
         while (timeElapsed < 2f)
@@ -124,7 +127,7 @@ public class GameManager : MonoBehaviour
         }
         scoreText.rectTransform.position = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0f);
         timeElapsed = 0f;
-        while (timeElapsed < 2f)
+        while (timeElapsed < 0.5f)
         {
             restartText.GetComponent<Text>().color = Color.Lerp(Color.black, Color.white, timeElapsed * 2f);
             timeElapsed += Time.deltaTime;
